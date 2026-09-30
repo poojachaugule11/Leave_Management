@@ -1,0 +1,57 @@
+:root {
+    --ink: #1c2530;
+    --muted: #64707d;
+    --line: #dde3ea;
+    --surface: #ffffff;
+    --page: #f3f5f8;
+    --accent: #1f5f8b;
+}
+
+body {
+    background: var(--page);
+    color: var(--ink);
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+}
+
+.app-header {
+    background: var(--ink);
+    padding: .85rem 0;
+}
+.app-header a { color: #d6dde5; text-decoration: none; }
+.app-header a:hover, .app-header a:focus-visible { color: #fff; }
+.app-header .brand { color: #fff; font-weight: 600; font-size: 1.1rem; }
+
+.btn-primary { --bs-btn-bg: var(--accent); --bs-btn-border-color: var(--accent);
+    --bs-btn-hover-bg: #174b6e; --bs-btn-hover-border-color: #174b6e; }
+
+.filter-bar, .form-panel, .leave-table {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+}
+.filter-bar { margin-left: 0; margin-right: 0; padding: .9rem; }
+.form-panel { padding: 1.5rem; }
+.form-label { font-weight: 500; font-size: .9rem; }
+
+.leave-table thead th {
+    background: #eef2f6;
+    font-size: .85rem;
+    color: var(--muted);
+    font-weight: 600;
+    white-space: nowrap;
+}
+.leave-table .reason { max-width: 260px; }
+
+.status {
+    display: inline-block;
+    padding: .2rem .65rem;
+    border-radius: 999px;
+    font-size: .8rem;
+    font-weight: 600;
+}
+.status-pending  { background: #fff1d6; color: #8a5a00; }
+.status-approved { background: #dcf3e3; color: #19693a; }
+.status-rejected { background: #fbe0e0; color: #9b2222; }
+
+.field-validation-error { font-size: .875rem; }
+.input-validation-error { border-color: #dc3545; }

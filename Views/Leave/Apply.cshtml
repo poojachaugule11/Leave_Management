@@ -1,0 +1,65 @@
+@model ApplyLeaveViewModel
+@{
+    ViewData["Title"] = "Apply for leave";
+}
+
+<div class="row justify-content-center">
+    <div class="col-12 col-lg-7">
+        <h1 class="h3 mb-3">Apply for leave</h1>
+
+        <form asp-action="Apply" method="post" class="form-panel" novalidate>
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="EmployeeId" class="form-label"></label>
+                <select asp-for="EmployeeId" asp-items="Model.Employees" class="form-select">
+                    <option value="">Select employee</option>
+                </select>
+                <span asp-validation-for="EmployeeId" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="LeaveTypeId" class="form-label"></label>
+                <select asp-for="LeaveTypeId" asp-items="Model.LeaveTypes" class="form-select">
+                    <option value="">Select leave type</option>
+                </select>
+                <span asp-validation-for="LeaveTypeId" class="text-danger"></span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="FromDate" class="form-label"></label>
+                    <input asp-for="FromDate" type="date" class="form-control" />
+                    <span asp-validation-for="FromDate" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="ToDate" class="form-label"></label>
+                    <input asp-for="ToDate" type="date" class="form-control" />
+                    <span asp-validation-for="ToDate" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="TotalDays" class="form-label"></label>
+                <input asp-for="TotalDays" type="number" class="form-control" readonly tabindex="-1" />
+                <div class="form-text">Calculated from the dates, counting both the first and last day.</div>
+            </div>
+
+            <div class="mb-4">
+                <label asp-for="Reason" class="form-label"></label>
+                <textarea asp-for="Reason" class="form-control" rows="4" maxlength="500"></textarea>
+                <span asp-validation-for="Reason" class="text-danger"></span>
+            </div>
+
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">Submit request</button>
+                <a class="btn btn-outline-secondary" asp-action="Index">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/apply-leave.js" asp-append-version="true"></script>
+}
